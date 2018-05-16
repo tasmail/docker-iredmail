@@ -23,7 +23,7 @@ RUN apt-get -q update \
       augeas-tools \
     && apt-get clean
 
-ENV IREDMAIL_VERSION 0.9.6
+ENV IREDMAIL_VERSION 0.9.8
 ARG HOSTNAME=mail
 ARG DOMAIN
 
@@ -124,4 +124,5 @@ ADD services/amavis.sh /etc/service/amavis/run
 ADD services/clamav-freshclam.sh /etc/service/clamav-freshclam/run
 ADD services/uwsgi-iredadmin.sh /etc/service/uwsgi-iredadmin/run
 ADD services/fail2ban.sh /etc/service/fail2ban/run
+ADD services/sogo.sh /etc/service/sogo/run
 
