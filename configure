@@ -32,7 +32,7 @@ PASSWORD_CHARS = ('A'..'Z').to_a + ('a'..'z').to_a + (0..9).to_a
 
 File.open(config_path, 'w') do |f|
   f << <<EOF
-# 0.9.6
+# 0.9.8
 export STORAGE_BASE_DIR='/var/vmail'
 export WEB_SERVER='NGINX'
 export BACKEND_ORIG='OPENLDAP'
@@ -46,7 +46,8 @@ export LDAP_ROOTPW='#{ldap_root_password}'
 export MYSQL_ROOT_PASSWD='#{database_root_password}'
 export DOMAIN_ADMIN_PASSWD_PLAIN='#{postmaster_password}'
 export USE_IREDADMIN='YES'
-export USE_ROUNDCUBE='YES'
+export USE_ROUNDCUBE='NO'
+export USE_SOGO='YES'
 export USE_AWSTATS='NO'
 export USE_FAIL2BAN='YES'
 export AMAVISD_DB_PASSWD='#{(0...30).map { PASSWORD_CHARS.sample }.join}'
