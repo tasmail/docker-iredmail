@@ -7,11 +7,8 @@ trap_hup_signal() {
 
 trap_term_signal() {
     echo "Stopping (from SIGTERM)"
-    kill -3 $pid
-    while cat /proc/"$pid"/status | grep State: | grep -q zombie; test $? -gt 0
-    do
-        sleep 1
-    done
+    /etc/init.d/sogo stop
+    sleep 2
     exit 0
 }
 
@@ -28,7 +25,3 @@ done
 
 pid=$(cat /run/sogo/sogo.pid)
 
-while kill -0 $pid 2>/dev/null
-do
-    sleep 1
-done
